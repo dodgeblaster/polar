@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link
+            rel="stylesheet"
+            href="https://main.dcgr5ap5fl5bj.amplifyapp.com/style.css"
+        />
+    </head>
+    <body></body>
+    <script type="module">
+        import { TestUtils } from '../../_testing/util.js'
+        import './component.js'
+
+        async function test() {
+            const { shadowRoot } = await TestUtils.render('gj-add-button')
+            if (shadowRoot.innerHTML.includes('hello')) {
+                document.body.innerHTML = /* HTML */ `
+                    <div
+                        class="h-screen w-full flex items-center justify-center"
+                        style="flex-direction: column"
+                    >
+                        <div
+                            class="flex items-center justify-center"
+                            style="flex-direction: column"
+                        >
+                            <p class="mb-2">
+                                ✅ Button component renders hello if no text is
+                                provided
+                            </p>
+                            <div
+                                class="mx-2 py-2 rounded bg-green-600 text-white px-4 py-1"
+                                style="width: 100%; text-align: center;"
+                            >
+                                All tests passed!
+                            </div>
+                        </div>
+                    </div>
+                `
+            } else {
+                document.body.innerHTML = /* HTML */ `
+                    <div
+                        class="h-screen w-full flex items-center justify-center"
+                    >
+                        <div
+                            class="mx-2 py-2 rounded bg-red-600 text-white px-4 py-1"
+                        >
+                            Button test failed!
+                        </div>
+                    </div>
+                `
+            }
+        }
+
+        test()
+    </script>
+</html>

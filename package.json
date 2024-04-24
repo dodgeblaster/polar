@@ -1,0 +1,20 @@
+{
+    "name": "polar",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test-store": "node --test --experimental-test-coverage",
+        "build-store": "esbuild ./store/index.mjs --bundle --outfile=polar-store.js --minify --target=chrome58,firefox57,safari11,edge16 --format=esm",
+        "build-ui": "esbuild ./ui/index.js --bundle --outfile=polar-ui.js --minify --target=chrome58,firefox57,safari11,edge16 --format=esm",
+        "build-css": "node ./css/index.mjs > polar.css"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@sinonjs/fake-timers": "^10.3.0",
+        "benchmark": "^2.1.4",
+        "esbuild": "^0.18.16"
+    }
+}
